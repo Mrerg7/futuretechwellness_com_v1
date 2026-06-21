@@ -4,7 +4,6 @@ preview_urls = false
 
 [assets]
 directory = "./dist"
-binding = "ASSETS"
 
 [observability]
 enabled = true
