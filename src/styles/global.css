@@ -50,7 +50,7 @@ h1, h2, h3 {
 }
 
 .card {
-  @apply glass p-8 rounded-3xl border border-slate-800/60 hover:border-teal-900/50 transition-all duration-300 group;
+  @apply glass p-8 rounded-3xl border border-slate-800/60 hover:border-teal-900/50 transition-all duration-300;
 }
 
 .nav-link {
