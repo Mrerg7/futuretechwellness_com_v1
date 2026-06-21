@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'FutureTechWellness.com | Premium Domain for Acquisition',
+  description = 'Where AI Meets Timeless Wellness. Rare premium .com domain capturing the convergence of future technology and human optimization. Available for strategic acquisition. Contact sales@desertrich.com.',
+  image = '/images/og-image.jpg',
+  canonical = 'https://futuretechwellness.com',
+} = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "futuretechwellness.com",
+  "description": "Premium domain name at the intersection of artificial intelligence, future technology, and holistic wellness. Ideal for AI wellness platforms, longevity brands, biohacking ventures, and health optimization companies.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Desert Rich Domains"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://futuretechwellness.com",
+    "priceCurrency": "USD",
+    "price": "125000",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Desert Rich Domains",
+      "email": "sales@desertrich.com"
+    },
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <meta name="keywords" content="futuretechwellness.com, AI wellness domain, premium wellness domain for sale, future technology wellness, longevity tech domain, biohacking brand domain, AI health domain acquisition" />
+  <meta name="author" content="Desert Rich Domains" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="FutureTechWellness.com" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonical} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={image} />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/images/logo-hero.jpg" />
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased">
+  <slot />
+</body>
+</html>

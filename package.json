@@ -1,0 +1,27 @@
+{
+  "name": "futuretechwellness-com",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "wrangler deploy",
+    "deploy:preview": "wrangler deploy --preview"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/sitemap": "^3.1.6",
+    "tailwindcss": "^3.4.14"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "wrangler": "^3.99.0"
+  }
+}

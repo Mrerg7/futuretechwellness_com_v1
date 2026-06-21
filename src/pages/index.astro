@@ -1,0 +1,427 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const pillars = await getCollection('pillars');
+const sortedPillars = pillars.sort((a, b) => a.data.order - b.data.order);
+
+// Acquisition email
+const acquisitionEmail = 'sales@desertrich.com';
+const emailSubject = 'Acquisition Inquiry: futuretechwellness.com';
+---
+
+<Layout>
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 glass border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/images/logo-hero.jpg" alt="FutureTechWellness Logo" class="h-9 w-auto rounded-lg" />
+        <div>
+          <div class="font-semibold tracking-tight text-xl">FutureTechWellness</div>
+          <div class="text-[10px] text-teal-500 -mt-1">.COM</div>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#opportunity" class="nav-link">The Opportunity</a>
+        <a href="#pillars" class="nav-link">Why This Domain</a>
+        <a href="#acquire" class="nav-link">Acquire</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a 
+          href={`mailto:${acquisitionEmail}?subject=${encodeURIComponent(emailSubject)}`}
+          class="cta-button-secondary text-sm px-6 py-2.5 hidden sm:inline-flex"
+        >
+          Email Us
+        </a>
+        <button 
+          onclick="openInquiryModal()"
+          class="cta-button text-sm px-6 py-2.5"
+        >
+          Acquire Now
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden border-b border-slate-800/60">
+    <!-- Subtle background -->
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/80 to-slate-950"></div>
+    
+    <div class="relative max-w-5xl mx-auto px-6 text-center pt-12 pb-20">
+      <!-- Logo -->
+      <div class="flex justify-center mb-8">
+        <img 
+          src="/images/logo-hero.jpg" 
+          alt="FutureTechWellness — Where AI Meets Timeless Wellness" 
+          class="h-28 md:h-36 w-auto drop-shadow-2xl rounded-2xl" 
+        />
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="domain-badge mx-auto mb-6">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-400"></span>
+          </span>
+          PREMIUM DOMAIN AVAILABLE
+        </div>
+
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-[-3.5px] leading-[0.92] mb-6">
+          Where AI Meets<br />Timeless Wellness
+        </h1>
+        
+        <p class="max-w-2xl mx-auto text-2xl md:text-3xl text-slate-300 tracking-tight mb-10">
+          futuretechwellness.com
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <div class="price text-5xl md:text-6xl font-semibold tracking-[-2px] text-white">
+            $125,000
+          </div>
+          <div class="text-left text-sm text-slate-400 max-w-[200px]">
+            USD • One-time acquisition<br />
+            <span class="text-teal-400">Serious inquiries only</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button 
+            onclick="openInquiryModal()"
+            class="cta-button text-xl px-10 py-5 shadow-2xl"
+          >
+            Secure This Domain →
+          </button>
+          <a 
+            href={`mailto:${acquisitionEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent('Hello,\n\nI am interested in acquiring futuretechwellness.com. Please provide details on pricing, transfer process, and next steps.\n\nBest regards,\n[Your Name]')}`}
+            class="cta-button-secondary text-xl px-10 py-5"
+          >
+            Contact via Email
+          </a>
+        </div>
+
+        <p class="mt-8 text-xs text-slate-500 tracking-[1px] uppercase">Instant brand authority in the AI wellness economy</p>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-xs tracking-[2px] text-slate-500">
+      SCROLL TO EXPLORE
+      <div class="h-px w-6 bg-slate-700"></div>
+    </div>
+  </header>
+
+  <!-- TRUST / INTRO -->
+  <section class="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
+    <div class="inline-flex items-center gap-2 text-teal-400 text-sm font-medium tracking-[1.5px] mb-4">THE RARE INTERSECTION</div>
+    <h2 class="section-heading max-w-4xl mx-auto mb-6">
+      A once-in-a-generation domain name at the precise convergence of two of the most powerful forces shaping humanity's future.
+    </h2>
+    <p class="max-w-2xl mx-auto text-xl text-slate-300">
+      FutureTechWellness.com is not merely available — it is strategically positioned to become the definitive brand for the next era of intelligent, personalized, and technology-augmented human flourishing.
+    </p>
+  </section>
+
+  <!-- THE OPPORTUNITY -->
+  <section id="opportunity" class="bg-slate-900/60 border-y border-slate-800 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-12 gap-x-12 gap-y-12 items-center">
+        <div class="md:col-span-5">
+          <div class="sticky top-24">
+            <div class="domain-badge mb-4">MARKET CONTEXT</div>
+            <h2 class="section-heading mb-6">The AI Wellness Economy is Exploding</h2>
+            <p class="text-lg text-slate-300 mb-8">
+              The global market for AI-powered health, longevity, and wellness solutions is growing at unprecedented rates. 
+              Descriptive, premium .com domains that perfectly encapsulate this convergence are exceptionally rare.
+            </p>
+            
+            <div class="space-y-6 text-sm">
+              <div class="flex gap-4">
+                <div class="font-mono text-teal-400 w-16 flex-shrink-0">2030</div>
+                <div class="text-slate-300">Projected AI healthcare & wellness market size exceeds <span class="font-semibold text-white">$150–250B+</span></div>
+              </div>
+              <div class="flex gap-4">
+                <div class="font-mono text-teal-400 w-16 flex-shrink-0">CAGR</div>
+                <div class="text-slate-300">Annual growth rates in AI wellness verticals consistently above <span class="font-semibold text-white">25–35%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-7">
+          <div class="prose prose-invert max-w-none text-[17px] text-slate-300 space-y-6">
+            <p>
+              From AI-driven personalized nutrition and predictive biomarker analysis to virtual longevity clinics, 
+              neurofeedback platforms, and autonomous wellness agents — the companies that win will own language, 
+              trust, and discoverability.
+            </p>
+            <p>
+              <span class="font-semibold text-white">futuretechwellness.com</span> does all three. It is short enough to be memorable, 
+              descriptive enough to rank and convert, and visionary enough to attract top-tier talent, investors, 
+              and strategic partners.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS / WHY THIS DOMAIN -->
+  <section id="pillars" class="max-w-7xl mx-auto px-6 py-20">
+    <div class="text-center mb-14">
+      <div class="domain-badge mx-auto mb-4">STRATEGIC VALUE</div>
+      <h2 class="section-heading">Why FutureTechWellness.com Wins</h2>
+      <p class="mt-4 text-xl text-slate-300 max-w-md mx-auto">Four pillars that make this domain a category-defining acquisition.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {sortedPillars.map((pillar) => (
+        <div class="card flex flex-col h-full">
+          <div class="text-4xl mb-5 opacity-90 group-hover:scale-110 transition-transform duration-300 inline-block w-fit">
+            {pillar.data.icon}
+          </div>
+          <h3 class="font-semibold text-2xl tracking-tight mb-3 text-white">{pillar.data.title}</h3>
+          <p class="text-[15px] leading-relaxed text-slate-300 flex-grow">{pillar.data.summary}</p>
+          <div class="mt-6 pt-6 border-t border-slate-800 text-xs uppercase tracking-[1px] text-teal-500 font-medium">KEY ADVANTAGE</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- VERSATILE USE CASES -->
+  <section class="border-y border-slate-800 bg-slate-900/40 py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h3 class="text-3xl font-semibold tracking-tight">Built for Category Leadership</h3>
+        <p class="text-slate-400 mt-2">This domain powers multiple high-value business models without compromise.</p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+        {[
+          { title: "AI Longevity Platform", desc: "Personalized protocols, biomarker tracking, AI coaching" },
+          { title: "Premium Biohacking Brand", desc: "Supplements, wearables, membership community" },
+          { title: "Enterprise Wellness SaaS", desc: "Corporate health optimization & performance" },
+          { title: "Media & Thought Leadership", desc: "Newsletter, podcast, research publication" },
+          { title: "AI-Powered Clinic Network", desc: "Virtual + physical longevity & wellness centers" },
+          { title: "Consumer Health OS", desc: "App + hardware ecosystem for daily optimization" },
+        ].map((use) => (
+          <div class="glass p-6 rounded-2xl border border-slate-800/60">
+            <div class="font-semibold text-white mb-1.5">{use.title}</div>
+            <div class="text-slate-400 text-[13px]">{use.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ACQUISITION CTA / PROCESS -->
+  <section id="acquire" class="max-w-5xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <div class="domain-badge mx-auto mb-4">NEXT STEP</div>
+      <h2 class="section-heading mb-4">Ready to Own the Future?</h2>
+      <p class="text-xl text-slate-300 max-w-lg mx-auto">
+        This premium digital asset is available for strategic acquisition. We work with serious buyers, family offices, and visionary founders.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <!-- Simple process -->
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="text-center p-6">
+          <div class="mx-auto w-10 h-10 rounded-full bg-teal-950 text-teal-400 flex items-center justify-center font-mono text-sm mb-4">01</div>
+          <div class="font-semibold mb-1">Initiate Contact</div>
+          <div class="text-sm text-slate-400">Email our acquisitions team or use the secure inquiry form below.</div>
+        </div>
+        <div class="text-center p-6">
+          <div class="mx-auto w-10 h-10 rounded-full bg-teal-950 text-teal-400 flex items-center justify-center font-mono text-sm mb-4">02</div>
+          <div class="font-semibold mb-1">Confidential Discussion</div>
+          <div class="text-sm text-slate-400">We discuss your vision, timeline, and preferred transaction structure (cash, escrow, seller financing options).</div>
+        </div>
+        <div class="text-center p-6">
+          <div class="mx-auto w-10 h-10 rounded-full bg-teal-950 text-teal-400 flex items-center justify-center font-mono text-sm mb-4">03</div>
+          <div class="font-semibold mb-1">Secure Transfer</div>
+          <div class="text-sm text-slate-400">Standard domain escrow via Escrow.com or your preferred broker. Full ownership transferred within days.</div>
+        </div>
+      </div>
+
+      <!-- Big CTA -->
+      <div class="text-center">
+        <button 
+          onclick="openInquiryModal()"
+          class="cta-button text-2xl px-14 py-6 shadow-2xl w-full md:w-auto"
+        >
+          Begin Acquisition Conversation
+        </button>
+        <p class="mt-4 text-xs text-slate-500">All inquiries are handled confidentially. We respond within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER with sophisticated CTA -->
+  <footer class="border-t border-slate-800 bg-slate-950 pt-16 pb-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Sophisticated Footer CTA -->
+      <div class="glass rounded-3xl p-10 md:p-14 mb-16 border border-slate-700/60">
+        <div class="max-w-3xl">
+          <div class="uppercase tracking-[2px] text-xs text-teal-500 font-medium mb-3">EXCLUSIVE OPPORTUNITY</div>
+          <h3 class="text-4xl md:text-5xl font-semibold tracking-[-1.5px] leading-none mb-6 text-white">
+            Secure futuretechwellness.com today and own the defining brand of the AI wellness era.
+          </h3>
+          <p class="text-xl text-slate-300 mb-8">
+            This rare digital asset is offered for strategic acquisition. Contact our team directly to discuss terms, 
+            pricing structure, and how this domain can accelerate your venture or portfolio.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button 
+              onclick="openInquiryModal()"
+              class="cta-button flex-1 md:flex-none justify-center text-lg py-4"
+            >
+              Contact Acquisitions Team
+            </button>
+            <a 
+              href={`mailto:${acquisitionEmail}?subject=${encodeURIComponent(emailSubject)}`}
+              class="cta-button-secondary flex-1 md:flex-none justify-center text-lg py-4 text-center"
+            >
+              sales@desertrich.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="max-w-4xl text-[10px] leading-relaxed text-slate-500 border-t border-slate-800 pt-8">
+        <p class="mb-3">
+          <strong>DISCLAIMER:</strong> This website is for demonstration and informational purposes only. It does not constitute an offer of services, 
+          a commitment to deploy, or a guarantee of outcomes. All statistics, projections, and references to specific technologies are based on publicly 
+          available information as of the date shown and are subject to change. Domain availability and pricing are subject to final negotiation. 
+          This is not legal, financial, or investment advice.
+        </p>
+        <p>
+          © {new Date().getFullYear()} FutureTechWellness.com • A premium digital asset represented by Desert Rich Domains • 
+          All rights reserved. • Built with Astro + Cloudflare Workers Static Assets.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INQUIRY MODAL -->
+  <div id="inquiryModal" class="hidden fixed inset-0 z-[100] items-center justify-center bg-black/90 p-6">
+    <div onclick="event.target.id === 'inquiryModal' && closeInquiryModal()" class="absolute inset-0"></div>
+    
+    <div class="modal relative w-full max-w-lg bg-slate-900 border border-slate-700 rounded-3xl p-8 md:p-10 shadow-2xl">
+      <button onclick="closeInquiryModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-2xl leading-none">×</button>
+      
+      <div class="mb-8">
+        <div class="domain-badge mb-4">CONFIDENTIAL INQUIRY</div>
+        <h3 class="text-3xl font-semibold tracking-tight">Let's discuss your acquisition of futuretechwellness.com</h3>
+        <p class="text-slate-400 mt-2 text-sm">Fill out the form below. We will open your email client with a pre-populated message to our acquisitions team.</p>
+      </div>
+
+      <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+        <div class="space-y-5">
+          <div>
+            <label class="block text-xs tracking-widest text-slate-400 mb-1.5">YOUR NAME</label>
+            <input type="text" id="fullName" required class="w-full bg-slate-950 border border-slate-700 focus:border-teal-600 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 outline-none" placeholder="Alex Rivera" />
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs tracking-widest text-slate-400 mb-1.5">EMAIL ADDRESS</label>
+              <input type="email" id="email" required class="w-full bg-slate-950 border border-slate-700 focus:border-teal-600 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 outline-none" placeholder="you@company.com" />
+            </div>
+            <div>
+              <label class="block text-xs tracking-widest text-slate-400 mb-1.5">ORGANIZATION / FUND</label>
+              <input type="text" id="org" class="w-full bg-slate-950 border border-slate-700 focus:border-teal-600 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 outline-none" placeholder="Optional" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs tracking-widest text-slate-400 mb-1.5">MESSAGE / USE CASE (OPTIONAL)</label>
+            <textarea id="message" rows="3" class="w-full bg-slate-950 border border-slate-700 focus:border-teal-600 rounded-3xl px-5 py-4 text-white placeholder:text-slate-500 outline-none resize-y min-h-[90px]" placeholder="Briefly describe your vision for the domain or intended use..."></textarea>
+          </div>
+        </div>
+
+        <button 
+          type="submit"
+          class="mt-8 w-full cta-button py-4 text-lg"
+        >
+          Send Secure Inquiry →
+        </button>
+        
+        <p class="text-center text-[10px] text-slate-500 mt-4">Your information is kept strictly confidential. We typically respond within one business day.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Modal controls
+    function openInquiryModal() {
+      const modal = document.getElementById('inquiryModal');
+      if (modal) modal.classList.remove('hidden');
+      if (modal) modal.classList.add('flex');
+      
+      // Focus first input
+      setTimeout(() => {
+        const nameInput = document.getElementById('fullName');
+        if (nameInput) nameInput.focus();
+      }, 300);
+    }
+
+    function closeInquiryModal() {
+      const modal = document.getElementById('inquiryModal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
+    // Form to mailto handler (sophisticated static CTA)
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const org = document.getElementById('org').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = 'Acquisition Inquiry: futuretechwellness.com';
+      
+      let body = `Hello Desert Rich Domains team,\n\n`;
+      body += `I am writing to express serious interest in acquiring the premium domain futuretechwellness.com.\n\n`;
+      body += `Name: ${name}\n`;
+      body += `Email: ${email}\n`;
+      if (org) body += `Organization / Fund: ${org}\n`;
+      if (message) body += `\nIntended Use / Vision:\n${message}\n`;
+      body += `\nPlease provide details regarding pricing, available transaction structures (escrow, wire, etc.), timeline, and any additional information I should know.\n\n`;
+      body += `I look forward to your prompt response.\n\n`;
+      body += `Best regards,\n${name}`;
+
+      const mailtoLink = `mailto:sales@desertrich.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Close modal first
+      closeInquiryModal();
+      
+      // Small delay then open email client
+      setTimeout(() => {
+        window.location.href = mailtoLink;
+      }, 180);
+    }
+
+    // Keyboard escape for modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('inquiryModal');
+        if (modal && !modal.classList.contains('hidden')) {
+          closeInquiryModal();
+        }
+      }
+    });
+
+    // Optional: subtle confetti or interaction on hero CTA hover (kept minimal)
+    console.log('%c[FutureTechWellness] Premium static site ready. Astro + Cloudflare Workers Static Assets.', 'color:#64748B');
+  </script>
+</Layout>
